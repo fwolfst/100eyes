@@ -42,7 +42,20 @@ Zu Entwicklungszwecken kannst du 100eyes mithilfe von Docker aufsetzen. Das Dock
    
    Für eine Übersicht über die verfügbaren Konfigurationsoptionen wirf einen Blick in die [Beispiel-Konfiguration](https://github.com/tactilenews/100eyes/tree/master/config/credentials/credentials.yml.enc).
 
-4. #### Container starten
+4. #### webpack-dev-server vorbereiten
+    Um den webpack-dev-server zu nutzen müssen u.U. einmalig die relevanten node-Module (`/node_modules`) installiert werden:
+
+    ```console
+    $ docker-compose run webpack bundle exec rails webpacker:yarn_install
+    ```
+
+    Dies kann auch aus dem Entwicklungssystem heraus geschehen (ohne `docker-compose`):
+
+    ```console
+    $ bundle exec rails webpacker:yarn_install
+    ```
+
+5. #### Container starten
     Du kannst alle Container mit einem einzigen Befehl starten. 100eyes kannst du dann in deinem Browser unter http://localhost:3000 aufrufen.
 
     ```console
